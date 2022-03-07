@@ -8,7 +8,14 @@ import org.assertj.core.api.Assertions;
 class LibraryApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void customerShouldBeSavedToFile() {
+		String firstNameToTest = "Patryk";
+		String lastNameToTest = "Mech";
+		String personalIdToTest = "12345";
+		CustomerHandler ch = new CustomerHandler();
+		Customer customer = ch.createNewCustomer(firstNameToTest,lastNameToTest,personalIdToTest);
+
+		Assertions.assertThat(ch.saveCustomerToFile(customer)).isEqualTo(1);
 	}
 
 }
